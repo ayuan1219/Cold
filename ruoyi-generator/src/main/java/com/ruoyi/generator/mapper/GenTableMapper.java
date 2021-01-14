@@ -1,12 +1,13 @@
 package com.ruoyi.generator.mapper;
 
-import java.util.List;
 import com.ruoyi.generator.domain.GenTable;
+
+import java.util.List;
 
 /**
  * 业务 数据层
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public interface GenTableMapper
 {

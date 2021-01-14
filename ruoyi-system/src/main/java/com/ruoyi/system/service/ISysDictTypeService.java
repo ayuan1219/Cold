@@ -1,13 +1,14 @@
 package com.ruoyi.system.service;
 
-import java.util.List;
 import com.ruoyi.common.core.domain.entity.SysDictData;
 import com.ruoyi.common.core.domain.entity.SysDictType;
+
+import java.util.List;
 
 /**
  * 字典 业务层
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public interface ISysDictTypeService
 {

@@ -1,12 +1,13 @@
 package com.ruoyi.system.mapper;
 
-import java.util.List;
 import com.ruoyi.system.domain.SysNotice;
+
+import java.util.List;
 
 /**
  * 通知公告表 数据层
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public interface SysNoticeMapper
 {

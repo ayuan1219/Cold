@@ -3,7 +3,7 @@ package com.ruoyi.common.utils.sign;
 /**
  * Base64工具类
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public final class Base64
 {

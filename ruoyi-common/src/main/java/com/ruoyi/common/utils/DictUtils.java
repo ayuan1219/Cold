@@ -1,16 +1,17 @@
 package com.ruoyi.common.utils;
 
-import java.util.Collection;
-import java.util.List;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.core.domain.entity.SysDictData;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.utils.spring.SpringUtils;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * 字典工具类
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public class DictUtils
 {

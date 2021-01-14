@@ -1,5 +1,8 @@
 package com.ruoyi.framework.config;
 
+import com.ruoyi.framework.security.filter.JwtAuthenticationTokenFilter;
+import com.ruoyi.framework.security.handle.AuthenticationEntryPointImpl;
+import com.ruoyi.framework.security.handle.LogoutSuccessHandlerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -14,14 +17,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.filter.CorsFilter;
-import com.ruoyi.framework.security.filter.JwtAuthenticationTokenFilter;
-import com.ruoyi.framework.security.handle.AuthenticationEntryPointImpl;
-import com.ruoyi.framework.security.handle.LogoutSuccessHandlerImpl;
 
 /**
  * spring security配置
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter

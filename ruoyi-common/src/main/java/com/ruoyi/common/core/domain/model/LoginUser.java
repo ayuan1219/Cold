@@ -1,16 +1,17 @@
 package com.ruoyi.common.core.domain.model;
 
-import java.util.Collection;
-import java.util.Set;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ruoyi.common.core.domain.entity.SysUser;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * 登录用户身份权限
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public class LoginUser implements UserDetails
 {

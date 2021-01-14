@@ -1,22 +1,18 @@
 package com.ruoyi.common.utils.file;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import com.ruoyi.common.utils.StringUtils;
+import org.apache.commons.lang3.ArrayUtils;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.lang3.ArrayUtils;
-import com.ruoyi.common.utils.StringUtils;
+import java.io.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 文件处理工具类
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public class FileUtils extends org.apache.commons.io.FileUtils
 {

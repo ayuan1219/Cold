@@ -1,17 +1,18 @@
 package com.ruoyi.common.core.domain.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import com.ruoyi.common.core.domain.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.core.domain.BaseEntity;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 菜单权限表 sys_menu
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public class SysMenu extends BaseEntity
 {

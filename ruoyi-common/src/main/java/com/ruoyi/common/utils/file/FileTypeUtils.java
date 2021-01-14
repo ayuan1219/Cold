@@ -1,12 +1,13 @@
 package com.ruoyi.common.utils.file;
 
-import java.io.File;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
 
 /**
  * 文件类型工具类
  *
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public class FileTypeUtils
 {

@@ -1,13 +1,14 @@
 package com.ruoyi.system.service;
 
-import java.util.List;
 import com.ruoyi.common.core.domain.TreeSelect;
 import com.ruoyi.common.core.domain.entity.SysDept;
+
+import java.util.List;
 
 /**
  * 部门管理 服务层
  * 
- * @author ruoyi
+ * @author EasyArch_Ayuan
  */
 public interface ISysDeptService
 {
