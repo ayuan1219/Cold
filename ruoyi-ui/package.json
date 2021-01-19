@@ -1,5 +1,5 @@
 {
-  "name": "ruoyi",
+  "name": "cold",
   "version": "3.3.0",
   "description": "冷库管理系统",
   "author": "EasyArch_Ayuan",
@@ -32,8 +32,7 @@
     "management-system"
   ],
   "repository": {
-    "type": "git",
-    "url": "https://gitee.com/y_project/RuoYi-Vue.git"
+    "type": "git"
   },
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",
