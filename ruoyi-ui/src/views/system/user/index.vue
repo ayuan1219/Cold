@@ -6,7 +6,7 @@
         <div class="head-container">
           <el-input
             v-model="deptName"
-            placeholder="请输入部门名称"
+            placeholder="请输入冷库名称"
             clearable
             size="small"
             prefix-icon="el-icon-search"
@@ -213,8 +213,8 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="归属部门" prop="deptId">
-              <treeselect v-model="form.deptId" :options="deptOptions" :show-count="true" placeholder="请选择归属部门" />
+            <el-form-item label="归属冷库" prop="deptId">
+              <treeselect v-model="form.deptId" :options="deptOptions" :show-count="true" placeholder="请选择归属部门"/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -343,15 +343,25 @@
 </template>
 
 <script>
-import { listUser, getUser, delUser, addUser, updateUser, exportUser, resetUserPwd, changeUserStatus, importTemplate } from "@/api/system/user";
-import { getToken } from "@/utils/auth";
-import { treeselect } from "@/api/system/dept";
+import {
+  addUser,
+  changeUserStatus,
+  delUser,
+  exportUser,
+  getUser,
+  importTemplate,
+  listUser,
+  resetUserPwd,
+  updateUser
+} from "@/api/system/user";
+import {getToken} from "@/utils/auth";
+import {treeselect} from "@/api/system/dept";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 export default {
   name: "User",
-  components: { Treeselect },
+  components: {Treeselect},
   data() {
     return {
       // 遮罩层

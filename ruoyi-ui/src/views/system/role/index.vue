@@ -248,9 +248,18 @@
 </template>
 
 <script>
-import { listRole, getRole, delRole, addRole, updateRole, exportRole, dataScope, changeRoleStatus } from "@/api/system/role";
-import { treeselect as menuTreeselect, roleMenuTreeselect } from "@/api/system/menu";
-import { treeselect as deptTreeselect, roleDeptTreeselect } from "@/api/system/dept";
+import {
+  addRole,
+  changeRoleStatus,
+  dataScope,
+  delRole,
+  exportRole,
+  getRole,
+  listRole,
+  updateRole
+} from "@/api/system/role";
+import {roleMenuTreeselect, treeselect as menuTreeselect} from "@/api/system/menu";
+import {roleDeptTreeselect, treeselect as deptTreeselect} from "@/api/system/dept";
 
 export default {
   name: "Role",
@@ -296,11 +305,11 @@ export default {
         },
         {
           value: "3",
-          label: "本部门数据权限"
+          label: "本冷库数据权限"
         },
         {
           value: "4",
-          label: "本部门及以下数据权限"
+          label: "本冷库及以下数据权限"
         },
         {
           value: "5",

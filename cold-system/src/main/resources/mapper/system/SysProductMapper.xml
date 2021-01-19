@@ -39,7 +39,6 @@
             <if test="productName != null  and productName != ''">and product_name like concat('%', #{productName},
                 '%')
             </if>
-            <if test="weight != null ">and weight = #{weight}</if>
             <if test="type != null  and type != ''">and type = #{type}</if>
             <if test="status != null ">and status = #{status}</if>
             <if test="deptId != null ">and dept_id = #{deptId}</if>

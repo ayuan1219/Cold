@@ -24,7 +24,8 @@
                 <div class="pull-right">{{ user.email }}</div>
               </li>
               <li class="list-group-item">
-                <svg-icon icon-class="tree" />所属部门
+                <svg-icon icon-class="tree"/>
+                所属冷库
                 <div class="pull-right" v-if="user.dept">{{ user.dept.deptName }} / {{ postGroup }}</div>
               </li>
               <li class="list-group-item">
@@ -62,7 +63,7 @@
 import userAvatar from "./userAvatar";
 import userInfo from "./userInfo";
 import resetPwd from "./resetPwd";
-import { getUserProfile } from "@/api/system/user";
+import {getUserProfile} from "@/api/system/user";
 
 export default {
   name: "Profile",

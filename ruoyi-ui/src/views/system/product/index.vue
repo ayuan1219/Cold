@@ -10,38 +10,29 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="库存重量" prop="weight">
-        <el-input
-          v-model="queryParams.weight"
-          placeholder="请输入库存重量"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="库存类型" prop="type">
-        <el-select v-model="queryParams.type" placeholder="请选择库存类型" clearable size="small">
-          <el-option label="请选择字典生成" value=""/>
-        </el-select>
-      </el-form-item>
       <el-form-item label="库存状态" prop="status">
         <el-select v-model="queryParams.status" placeholder="请选择库存状态" clearable size="small">
-          <el-option label="请选择字典生成" value=""/>
+          <el-option
+            v-for="dict in statusOptions"
+            :key="dict.dictValue"
+            :label="dict.dictLabel"
+            :value="dict.dictValue"
+          />
         </el-select>
       </el-form-item>
-      <el-form-item label="部门序号" prop="deptId">
+      <el-form-item label="冷库序号" prop="deptId">
         <el-input
           v-model="queryParams.deptId"
-          placeholder="请输入部门序号"
+          placeholder="请输入冷库序号"
           clearable
           size="small"
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="部门名称" prop="deptName">
+      <el-form-item label="冷库名称" prop="deptName">
         <el-input
           v-model="queryParams.deptName"
-          placeholder="请输入部门名称"
+          placeholder="请输入冷库名称"
           clearable
           size="small"
           @keyup.enter.native="handleQuery"
@@ -109,9 +100,9 @@
       <el-table-column label="库存名称" align="center" prop="productName"/>
       <el-table-column label="库存重量" align="center" prop="weight"/>
       <el-table-column label="库存类型" align="center" prop="type"/>
-      <el-table-column label="库存状态" align="center" prop="status"/>
-      <el-table-column label="部门序号" align="center" prop="deptId"/>
-      <el-table-column label="部门名称" align="center" prop="deptName"/>
+      <el-table-column label="库存状态" align="center" prop="status" :formatter="statusFormat"/>
+      <el-table-column label="冷库序号" align="center" prop="deptId"/>
+      <el-table-column label="冷库名称" align="center" prop="deptName"/>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -152,20 +143,23 @@
           <el-input v-model="form.weight" placeholder="请输入库存重量"/>
         </el-form-item>
         <el-form-item label="库存类型" prop="type">
-          <el-select v-model="form.type" placeholder="请选择库存类型">
-            <el-option label="请选择字典生成" value=""/>
-          </el-select>
+          <el-input v-model="form.type" placeholder="请输入库存类型"/>
         </el-form-item>
         <el-form-item label="库存状态">
           <el-radio-group v-model="form.status">
-            <el-radio label="1">请选择字典生成</el-radio>
+            <el-radio
+              v-for="dict in statusOptions"
+              :key="dict.dictValue"
+              :label="parseInt(dict.dictValue)"
+            >{{ dict.dictLabel }}
+            </el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="部门序号" prop="deptId">
-          <el-input v-model="form.deptId" placeholder="请输入部门序号"/>
+        <el-form-item label="冷库序号" prop="deptId">
+          <el-input v-model="form.deptId" placeholder="请输入冷库序号"/>
         </el-form-item>
-        <el-form-item label="部门名称" prop="deptName">
-          <el-input v-model="form.deptName" placeholder="请输入部门名称"/>
+        <el-form-item label="冷库名称" prop="deptName">
+          <el-input v-model="form.deptName" placeholder="请输入冷库名称"/>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -202,13 +196,13 @@ export default {
       title: "",
       // 是否显示弹出层
       open: false,
+      // 库存状态字典
+      statusOptions: [],
       // 查询参数
       queryParams: {
         pageNum: 1,
         pageSize: 10,
         productName: null,
-        weight: null,
-        type: null,
         status: null,
         deptId: null,
         deptName: null,
@@ -218,13 +212,16 @@ export default {
       // 表单校验
       rules: {
         deptId: [
-          {required: true, message: "部门序号不能为空", trigger: "blur"}
+          {required: true, message: "冷库序号不能为空", trigger: "blur"}
         ],
       }
     };
   },
   created() {
     this.getList();
+    this.getDicts("sys_product_status").then(response => {
+      this.statusOptions = response.data;
+    });
   },
   methods: {
     /** 查询产品列表 */
@@ -235,6 +232,10 @@ export default {
         this.total = response.total;
         this.loading = false;
       });
+    },
+    // 库存状态字典翻译
+    statusFormat(row, column) {
+      return this.selectDictLabel(this.statusOptions, row.status);
     },
     // 取消按钮
     cancel() {
